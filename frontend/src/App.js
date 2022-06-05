@@ -1,24 +1,29 @@
-import { gql, useQuery } from '@apollo/client'
+// import { gql, useQuery } from '@apollo/client'
+import React from 'react'
 
-const query = gql`
-query {
-  searchCount
-}
-`
+import GlobalStyle, { Page } from './globalStyles'
+
+import Main from './components/Main'
+
+// const query = gql`
+// query {
+//   searchCount
+// }
+// `
 
 const App = () => {
-  const result = useQuery(query)
+  // const result = useQuery(query)
 
-  if (result.loading) {
-    return <div>
-      loading
-    </div>
-  }
+  // if (result.loading) {
+  //   return <div>
+  //     loading
+  //   </div>
+  // }
   return (
-    <div>
-      gql
-      searches: {result.data.searchCount}
-    </div>
+    <Page>
+      <GlobalStyle />
+      <Main />
+    </Page>
   )
 }
 
