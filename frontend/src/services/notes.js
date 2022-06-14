@@ -1,3 +1,13 @@
+// helper functions
+const reverseObject = obj => {
+  const newObj = {}
+  for (let key in obj) {
+    newObj[obj[key]] = key
+  }
+
+  return newObj
+}
+
 const frequencies = {
   c0: 16.35,
   db0: 17.32,
@@ -117,6 +127,96 @@ const frequencies = {
   b8: 7902.13
 }
 
+const HIGHEST_NOTE_FREQ = Math.max(...Object.values(frequencies))
+
+
+
+// const createPianoNotes = (lowestNote = 'c', lowestOctave = 1, highestNote = 'c', highestOctave = 8) => {
+//   const notesInOctave = ['c', 'db', 'd', 'eb', 'e', 'f', 'gb', 'g', 'ab', 'a', 'bb', 'b']
+
+//   if (!notesInOctave.includes(lowestNote) || !notesInOctave.includes(highestNote)) {
+//     throw new Error('invalid notenames in parameters')
+//   }
+
+//   if (lowestOctave < 0 || highestOctave > 8) {
+//     throw new Error('octave parameter(s) outside the range of possible frequencies')
+//   }
+
+//   const pianoNoteFrequencies = {}
+//   let currentIndex = notesInOctave.indexOf(lowestNote)
+//   let currentOctave = lowestOctave
+//   const endingIndex = notesInOctave.indexOf(highestNote)
+
+//   while (currentOctave < highestOctave) {
+//     for (let i = currentIndex; i < notesInOctave.length; i++) {
+//       let currentNote = notesInOctave[i] + currentOctave
+//       pianoNoteFrequencies[currentNote] = frequencies[currentNote]
+//     }
+//     currentOctave++
+//     currentIndex = 0
+//   }
+
+//   for (let i = currentIndex; i <= endingIndex; i++) {
+//     let currentNote = notesInOctave[i] + currentOctave
+//     pianoNoteFrequencies[currentNote] = frequencies[currentNote]
+//   }
+
+//   return pianoNoteFrequencies
+
+// }
+
+const createPianoNotes = (lowestNote = 'c', lowestOctave = 1, highestNote = 'c', highestOctave = 8) => {
+  const notesInOctave = ['c', 'db', 'd', 'eb', 'e', 'f', 'gb', 'g', 'ab', 'a', 'bb', 'b']
+
+  if (!notesInOctave.includes(lowestNote) || !notesInOctave.includes(highestNote)) {
+    throw new Error('invalid notenames in parameters')
+  }
+
+  if (lowestOctave < 0 || highestOctave > 8) {
+    throw new Error('octave parameter(s) outside the range of possible frequencies')
+  }
+
+  if (lowestOctave >= highestOctave) {
+    throw new Error('lowestOctave must be lower than highestOctave')
+  }
+
+  const pianoNotes = []
+  let currentIndex = notesInOctave.indexOf(lowestNote)
+  let currentOctave = lowestOctave
+  const endingIndex = notesInOctave.indexOf(highestNote)
+
+  while (currentOctave < highestOctave) {
+    for (let i = currentIndex; i < notesInOctave.length; i++) {
+      let currentNote = notesInOctave[i] + currentOctave
+      pianoNotes.push(currentNote)
+    }
+    currentOctave++
+    currentIndex = 0
+  }
+
+  for (let i = currentIndex; i <= endingIndex; i++) {
+    let currentNote = notesInOctave[i] + currentOctave
+    pianoNotes.push(currentNote)
+  }
+
+  return pianoNotes
+}
+
+const findNoteName = note => {
+  if (note.length === 0) {
+    throw new Error('note cannot be an empty string')
+  }
+  const numberIndex = note.search(/[0-8]/)
+
+  return note.slice(0, numberIndex)
+}
+
+const pianoNotes = createPianoNotes('a', 0, 'c', 6)
+
 export default {
-  frequencies
+  frequencies,
+  reverseObject,
+  HIGHEST_NOTE_FREQ,
+  pianoNotes,
+  findNoteName
 }
