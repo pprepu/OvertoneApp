@@ -7,6 +7,14 @@ const mutation = gql`
       overtones: Int!
       answer: [String!]
     ): Search
+    createUser(
+      username: String!
+      password: String!
+    ): User
+    login(
+      username: String!
+      password: String!
+    ): Token
   }
 `
 

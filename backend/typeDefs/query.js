@@ -4,6 +4,7 @@ const query = gql`
   type Query {
     searchCount: Int!
     allSearches: [Search!]!
+    me: User
   }
 `
 
