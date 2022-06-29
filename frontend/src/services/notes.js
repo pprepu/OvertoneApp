@@ -211,7 +211,7 @@ const findNoteName = note => {
   return note.slice(0, numberIndex)
 }
 
-const pianoNotes = createPianoNotes('a', 0, 'c', 6)
+const pianoNotes = createPianoNotes('a', 0, 'c', 8)
 
 export default {
   frequencies,

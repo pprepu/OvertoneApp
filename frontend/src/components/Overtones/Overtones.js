@@ -5,14 +5,16 @@ import noteService from '../../services/notes'
 import {
   Container,
   Text,
-  Button
+  Button,
+  SubPage
 } from '../../globalStyles'
 
 import {
   White,
   Black,
   FancyDiv,
-  SpecialContainer
+  SpecialContainer,
+  KbContainer,
 } from './Overtones.elements'
 
 
@@ -115,18 +117,8 @@ const Overtones = () => {
     setPartials(partials + -1)
   }
 
-  /*
-  Seuraavaks:
-  pianon luominen .mapilla ->
-  1. notes.js, pianonotes array, josta mäpätään key
-  2. note[1] === 'b' ? <White blaablaa /> : <Black blaablaa />
-  3. useStateen overtoneservice.findovertonesin palauttamat notet
-  4. löydetyt notet esim. .map(keyName => <White keyName freqDist=notesFound[keyName] />) <- freqDist on undefined (falsy)
-  5. ylläolevan perusteella löydettyjen sävelten erilainen ilme piirretyssä pianossa
-  */
-
   return (
-    <Container>
+    <SubPage>
       {/* <StyledInput value={note} onChange={handleNoteChange}/>
       <Text>current note: {note}</Text>
       <Container>
@@ -147,13 +139,14 @@ const Overtones = () => {
         <Button onClick={() => findOvertones()}>OVERTONES</Button>
       </Container> */}
       <Container>
-        <Text>
-          Pressing a key on the piano creates the harmonic series from that note.
-          The partials of this series will be shown on the keyboard with different colors
-          expressing differing levels of distance between the actual note in the harmonic series and the note
-          shown on the piano. Lighter colors mean smaller, even imperceptible deviations, while darker colors mean
-          noticeable, dissonant sounding differences if those notes would be played together.
+        <Text height='20px'>
+          {
+            noteHovered &&
+            `note: ${noteHovered}, cents: ${Math.round(activePianoNotes[noteHovered] * 100)}`
+          }
         </Text>
+      </Container>
+      <KbContainer>
         {
           noteService.pianoNotes.map(note =>
             note[1] === 'b'
@@ -177,21 +170,13 @@ const Overtones = () => {
               />
           )
         }
-      </Container>
+      </KbContainer>
       <SpecialContainer>
         <Button onClick={() => partialsDown()}>-</Button>
         <FancyDiv>{partials}</FancyDiv>
         <Button onClick={() => partialsUp()}>+</Button>
       </SpecialContainer>
-      <Container>
-        {noteHovered &&
-        <Text>
-          note: {noteHovered},
-          cents: {Math.round(activePianoNotes[noteHovered] * 100)}
-        </Text>
-        }
-      </Container>
-    </Container>
+    </SubPage>
   )
 }
 

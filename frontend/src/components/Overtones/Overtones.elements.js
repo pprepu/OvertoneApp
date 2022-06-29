@@ -26,17 +26,13 @@ export const StyledInput = styled.input`
 // const $whiteKey_BorderColor = '#AAAAAA'
 
 export const KbContainer = styled(Container)`
-  height:           100%;
-	display:          flex;
-	margin:           auto;
-	justify-content:  center;
-	align-items:      center;
-	background-color: #111;
-`
-
-export const Key = styled.div`
-  float:    left;
-	position: relative;
+	background-color: black;
+	width: 100%;
+	height: 5em;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 30px;
+	margin-top: 60px;
 `
 
 const offsetKeys = ['a', 'b', 'd', 'e', 'g']
@@ -72,12 +68,11 @@ export const SpecialContainer = styled(Container)`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	margin: auto;
 	justify-content: center;
 `
 
 export const FancyDiv = styled.div`
-  font-size: '5px';
+  font-size: 1em;
 	width: 100px;
 `
 
@@ -90,8 +85,12 @@ export const White = styled.div`
 	border-top: 1px solid #AAAAAA;
 	border-bottom: 1px solid #AAAAAA;
 	border-left: 1px solid #AAAAAA;
-	background-color: ${props => props.distanceFromNote !== undefined ? distanceToColor(props.distanceFromNote) : '#CBCBCB'};
+	background-color: ${props => props.distanceFromNote !== undefined ? distanceToColor(props.distanceFromNote) : '#F8F8F8'};
   margin: ${props => offsetKeys.includes(props.keyName) ? '0 0 0 -0.25em' : ''};
+
+	&:hover {
+		border: 1px solid #000000;
+	}
 
 `
 export const Black = styled.div`
@@ -103,6 +102,10 @@ export const Black = styled.div`
 	border: 1px solid #000000;
 	background-color: ${props => props.distanceFromNote !== undefined ? distanceToColor(props.distanceFromNote) : '#222222'};
   margin: 0 0 0 -0.25em;
+
+	&:hover {
+		border: 1px solid #AAAAAA;
+	}
 `
 /* .a, .b, .d, .e, .g, .black{
 	margin: 0 0 0 $blackKey_Offset;
