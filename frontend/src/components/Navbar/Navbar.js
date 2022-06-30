@@ -1,10 +1,12 @@
-
-
+// import { useState } from 'react'
+import Login from '../Login'
+import Signup from '../Signup'
 import {
   Nav,
   NavbarContainer,
   NavbarItem,
   Dropdown,
+  NavMenu
 } from './Navbar.elements'
 
 
@@ -13,19 +15,23 @@ const Navbar = () => {
     <>
       <Nav>
         <NavbarContainer>
-          <NavbarItem>
-            lel
+          <NavbarItem >
+            OvertoneApp
           </NavbarItem>
-          <NavbarContainer justifyContent='right'>
+          <NavMenu>
             <NavbarItem>
               Login
               <Dropdown>
+                <Login />
               </Dropdown>
             </NavbarItem>
             <NavbarItem>
               Signup
+              <Dropdown>
+                <Signup />
+              </Dropdown>
             </NavbarItem>
-          </NavbarContainer>
+          </NavMenu>
         </NavbarContainer>
       </Nav>
     </>

@@ -129,42 +129,6 @@ const frequencies = {
 
 const HIGHEST_NOTE_FREQ = Math.max(...Object.values(frequencies))
 
-
-
-// const createPianoNotes = (lowestNote = 'c', lowestOctave = 1, highestNote = 'c', highestOctave = 8) => {
-//   const notesInOctave = ['c', 'db', 'd', 'eb', 'e', 'f', 'gb', 'g', 'ab', 'a', 'bb', 'b']
-
-//   if (!notesInOctave.includes(lowestNote) || !notesInOctave.includes(highestNote)) {
-//     throw new Error('invalid notenames in parameters')
-//   }
-
-//   if (lowestOctave < 0 || highestOctave > 8) {
-//     throw new Error('octave parameter(s) outside the range of possible frequencies')
-//   }
-
-//   const pianoNoteFrequencies = {}
-//   let currentIndex = notesInOctave.indexOf(lowestNote)
-//   let currentOctave = lowestOctave
-//   const endingIndex = notesInOctave.indexOf(highestNote)
-
-//   while (currentOctave < highestOctave) {
-//     for (let i = currentIndex; i < notesInOctave.length; i++) {
-//       let currentNote = notesInOctave[i] + currentOctave
-//       pianoNoteFrequencies[currentNote] = frequencies[currentNote]
-//     }
-//     currentOctave++
-//     currentIndex = 0
-//   }
-
-//   for (let i = currentIndex; i <= endingIndex; i++) {
-//     let currentNote = notesInOctave[i] + currentOctave
-//     pianoNoteFrequencies[currentNote] = frequencies[currentNote]
-//   }
-
-//   return pianoNoteFrequencies
-
-// }
-
 const createPianoNotes = (lowestNote = 'c', lowestOctave = 1, highestNote = 'c', highestOctave = 8) => {
   const notesInOctave = ['c', 'db', 'd', 'eb', 'e', 'f', 'gb', 'g', 'ab', 'a', 'bb', 'b']
 

@@ -31,8 +31,7 @@ const Footer = () => {
 
       <PopupText onClick={() => setShowPopup('')} show={showPopup === 'why'} >
         <Text>
-          Why is the harmonic series emerging from a singular note so interesting, that building this app could be considered
-          valuable or interesting?
+          Why is the harmonic series emerging from a singular note interesting and potentially even valuable?
         </Text>
         <Text>
           First of all, connecting a note with its partials can be used to harmonize chords, which can be especially powerful in an

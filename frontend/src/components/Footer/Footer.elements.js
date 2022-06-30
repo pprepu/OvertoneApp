@@ -18,17 +18,23 @@ export const PopupText = styled.div`
   top: 40px;
   margin-left: auto; 
   margin-right: auto;
+  padding-right: 10px;
+  padding-left: 10px;
   width: 600px;
   height: 85vh;
-  background: white;
+  background-color: #4A5FC1;
+  color: #E1FCFD;
   border-radius: 60px;
+  border: 3px solid #394F8A;
 
   flex-direction: column;
   justify-content: center;
   /* visibility: ${props => props.show ? 'visible' : 'hidden'}; */
 `
-export const FooterElement = styled.div`
-  border: 1px solid black;
+export const FooterElement = styled.button`
+  border: 3px solid #394F8A;
+  color: #394F8A;
+  background-color: #E5B9A8;
   width: 30%;
   height: 100%;
   font-size: 3.5em;
@@ -39,7 +45,7 @@ export const FooterElement = styled.div`
 
   &:hover {
     transition: all 0.5s ease-out;
-    background-color: #F8F8F8;
+    background-color: #9CF6FB;
     border-radius: 25px;
   }
   

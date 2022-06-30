@@ -8,23 +8,6 @@ export const StyledInput = styled.input`
   border-radius: 8px;
 `
 
-// Responsive Sizing
-// (currently optimized for horizontal scaling)
-// const $keyboard_Width =  80
-// const $keyboard_Height = $keyboard_Width * 0.18
-// const $border_Width =    $keyboard_Width * 0.0015
-// const $whiteKey_Count =  8
-// const $whiteKey_Height = $keyboard_Height
-// const $whiteKey_Width = $keyboard_Width / $whiteKey_Count
-// const $blackKey_Height = $whiteKey_Height * 0.55
-// const $blackKey_Width =  $whiteKey_Width  * 0.55
-// const $blackKey_Offset = -($blackKey_Width / 2) - $border_Width
-
-// const $whiteKey_Color = '#CBCBCB'
-// const $blackKey_Color = '#222222'
-// const $blackKey_BorderColor = '#000000'
-// const $whiteKey_BorderColor = '#AAAAAA'
-
 export const KbContainer = styled(Container)`
 	background-color: black;
 	width: 100%;
@@ -32,7 +15,7 @@ export const KbContainer = styled(Container)`
 	display: flex;
 	justify-content: center;
 	margin-bottom: 30px;
-	margin-top: 60px;
+	margin-top: 10px;
 `
 
 const offsetKeys = ['a', 'b', 'd', 'e', 'g']
@@ -72,7 +55,7 @@ export const SpecialContainer = styled(Container)`
 `
 
 export const FancyDiv = styled.div`
-  font-size: 1em;
+  font-size: 1.5em;
 	width: 100px;
 `
 
