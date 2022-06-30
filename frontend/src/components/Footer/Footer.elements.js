@@ -8,6 +8,13 @@ export const FooterContainer = styled.div`
   height: 180px;
   justify-content: space-between;
 
+  @media screen and (max-width: 960px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+  }
+
 `
 export const PopupText = styled.div`
   display: ${props => props.show ? 'flex' : 'none'};
@@ -47,6 +54,10 @@ export const FooterElement = styled.button`
     transition: all 0.5s ease-out;
     background-color: #9CF6FB;
     border-radius: 25px;
+  }
+
+  @media screen and (max-width: 960px) {
+    width: 100%;
   }
   
 `

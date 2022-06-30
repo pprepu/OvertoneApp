@@ -152,4 +152,34 @@ export const ErrorMessage = styled.p`
     margin: 20px;
 `
 
+export const Link = styled.a`
+    color: #E1FCFD;
+    cursor: pointer;
+    text-decoration: underline;
+    border: 1px solid #4A5FC1;
+
+    &:hover {
+        color: #4A5FC1;
+        transition: all 0.3s ease-out;
+        border: 1px solid black;
+        border-radius: 7px;
+        background-color: #E1FCFD;
+        text-decoration: none;
+    }
+
+    &:active, &:visited {
+        text-decoration: none;
+    }
+`
+
+export const TextParagraph = styled.p`
+    /* align-self: left; */
+    text-align: center;
+    margin: 15px;
+
+    /* @media screen and (max-width: 960px) {
+        width: 70%;
+    } */
+`
+
 export default GlobalStyle
