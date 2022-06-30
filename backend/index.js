@@ -24,7 +24,9 @@ mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology
   })
 
   async function startApolloServer(typeDefs, resolvers) {
-    const app = express();
+    const app = express()
+    app.use(cors())
+    app.use(express.static('build'))
     const httpServer = http.createServer(app);
     const server = new ApolloServer({
       typeDefs,
