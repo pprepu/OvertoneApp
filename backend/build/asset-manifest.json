@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/static/js/main.ef2609b7.js",
+    "static/media/Roboto-Light-webfont.woff": "/static/media/Roboto-Light-webfont.0ee1beee97841f0345fd.woff",
+    "index.html": "/index.html",
+    "main.ef2609b7.js.map": "/static/js/main.ef2609b7.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.ef2609b7.js"
+  ]
+}
