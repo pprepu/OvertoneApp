@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-prebuild": "cd backend && npm install",
-    "heroku-prebuild2": "cd frontend && npm install"
+    "heroku-prebuild": "cd frontend && npm install"
   },
   "author": "",
   "license": "ISC"
