@@ -10,6 +10,6 @@ mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology
     console.log('error connecting to MongoDB:', error.message)
   })
 
-server.listen().then(({ url }) => {
+server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
   console.log(`Server ready at ${url}`)
 })
