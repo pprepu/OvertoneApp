@@ -23,25 +23,25 @@ mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology
     console.log('error connecting to MongoDB:', error.message)
   })
 
-  async function startApolloServer(typeDefs, resolvers) {
-    const app = express()
-    app.use(cors())
-    app.use(express.static('build'))
-    const httpServer = http.createServer(app);
-    const server = new ApolloServer({
-      typeDefs,
-      resolvers,
-      csrfPrevention: true,
-      cache: 'bounded',
-      plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
-    });
-    await server.start();
-    server.applyMiddleware({ app });
-    await new Promise(resolve => httpServer.listen({ port: 4000 }, resolve));
-    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
-  }
+async function startApolloServer(typeDefs, resolvers) {
+  const app = express()
+  app.use(cors())
+  app.use(express.static('build'))
+  const httpServer = http.createServer(app)
+  // const server = new ApolloServer({
+  //   typeDefs,
+  //   resolvers,
+  //   csrfPrevention: true,
+  //   cache: 'bounded',
+  //   plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+  // })
+  await server.start()
+  server.applyMiddleware({ app })
+  await new Promise(resolve => httpServer.listen({ port: 4000 }, resolve))
+  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+}
 
-  startApolloServer(typeDefs, resolvers)
+startApolloServer(typeDefs, resolvers)
 
 // server.start()
 // .then(() => server.applyMiddleware({app}))

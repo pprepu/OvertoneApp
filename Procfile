@@ -1,1 +1,1 @@
-web: npm run heroku-prebuild && cd frontend && npm start
+web: npm run heroku-prebuild && cd backend && npm start
