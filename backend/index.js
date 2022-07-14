@@ -4,7 +4,7 @@ const { server } = require('./server')
 
 const express = require('express')
 const http = require('http')
-const app = express()
+const { app }  = require('./server')
 const cors = require('cors')
 
 const { ApolloServer } = require('apollo-server-express')
@@ -24,9 +24,9 @@ mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology
   })
 
 async function startApolloServer(typeDefs, resolvers) {
-  const app = express()
-  app.use(cors())
-  app.use(express.static('build'))
+  // const app = express()
+  // app.use(cors())
+  // app.use(express.static('build'))
   const httpServer = http.createServer(app)
   // const server = new ApolloServer({
   //   typeDefs,
@@ -37,7 +37,7 @@ async function startApolloServer(typeDefs, resolvers) {
   // })
   await server.start()
   server.applyMiddleware({ app })
-  await new Promise(resolve => httpServer.listen({ port: 4000 }, resolve))
+  await new Promise(resolve => httpServer.listen({ port: process.env.PORT || 4000 }, resolve))
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
 }
 
