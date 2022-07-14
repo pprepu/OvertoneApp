@@ -40,6 +40,7 @@ const userResolvers = {
         : false
   
       if (!(user && passwordIsCorrect)) {
+        console.log('debugging, password incorrect')
         throw new UserInputError("invalid credentials")
       }
   
