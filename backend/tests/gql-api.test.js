@@ -9,6 +9,18 @@ const helper = require('./test_helper')
 
 const { server } = require('../server')
 
+const connectToDatabase = async () => {
+  await mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+      console.log('connected to MongoDB')
+    })
+    .catch((error) => {
+      console.log('error connecting to MongoDB:', error.message)
+    })
+}
+
+connectToDatabase()
+
 mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('connected to MongoDB')
