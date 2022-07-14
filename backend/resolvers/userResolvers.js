@@ -35,14 +35,11 @@ const userResolvers = {
     login: async (root, args) => {
       const user = await User.findOne({ username: args.username })
 
-      console.log('debugging, in login@usserResolvers')
-
       const passwordIsCorrect = user !== null
         ? await bcrypt.compare(args.password, user.passwordHash)
         : false
   
       if (!(user && passwordIsCorrect)) {
-        console.log('debugging, password incorrect')
         throw new UserInputError("invalid credentials")
       }
   

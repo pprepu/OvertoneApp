@@ -74,9 +74,6 @@ describe('while there is a user in the database', () => {
       helper.createQuery('login', userLoggingIn.username, userLoggingIn.password)
     )
 
-    const usersInDb = await helper.getUsers()
-    console.log(usersInDb)
-    console.log('data', result.data)
     expect(result.data.login.value).toBeDefined()
   })
 })
