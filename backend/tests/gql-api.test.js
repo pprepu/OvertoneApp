@@ -61,7 +61,7 @@ describe('while there is a user in the database', () => {
     const result = await server.executeOperation(
       helper.createQuery('login', userLoggingIn.username, userLoggingIn.password)
     )
-
+    console.log('data', result.data)
     expect(result.data.login.value).toBeDefined()
   })
 })

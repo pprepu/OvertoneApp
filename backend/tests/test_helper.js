@@ -9,7 +9,7 @@ const createQuery = function (query, arg1, arg2) {
   switch (query) {
     case 'createUser':
       if (arguments.length !== 3) {
-        console.log('createQuery/createUser called with a strange amount of arguments')
+        throw new Error('createQuery/createUser called with a strange amount of arguments')
       }
       return {
         query: 'mutation createUser($username: String!, $password: String!) { createUser(username: $username, password: $password) { username }}',
@@ -17,7 +17,7 @@ const createQuery = function (query, arg1, arg2) {
       }
     case 'login':
       if (arguments.length !== 3) {
-        console.log('createQuery/login called with a strange amount of arguments')
+        throw new Error('createQuery/login called with a strange amount of arguments')
       }
       return {
         query: 'mutation login($username: String!, $password: String!) { login(username: $username, password: $password) { value }}',
