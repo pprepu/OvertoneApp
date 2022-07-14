@@ -11,10 +11,9 @@ const { resolvers } = require('./resolvers')
 const { typeDefs } = require('./typeDefs')
 
 const app = express()
-const httpServer = http.createServer(app)
-
 app.use(cors())
 app.use(express.static('build'))
+const httpServer = http.createServer(app)
 
 const server = new ApolloServer({
   typeDefs,
