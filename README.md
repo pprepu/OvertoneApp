@@ -27,3 +27,5 @@ So far, only a skeleton workflow for Github Actions has been created, but it is 
 - component styles are not final
 - responsive design is not fully implemented
 - harmful layout shifts can be experienced
+
+![GitHub Actions](https://github.com/pprepu/OvertoneApp/actions/workflows/pipeline.yml/badge.svg)
